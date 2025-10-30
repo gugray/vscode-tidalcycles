@@ -1,9 +1,9 @@
 {
-  "name": "vscode-tidalcycles",
-  "displayName": "TidalCycles for VSCode",
-  "description": "TidalCycles support in VSCode",
+  "name": "relaying-vscode-tidalcycles",
+  "displayName": "Relaying TidalCycles for VSCode",
+  "description": "Relaying TidalCycles support in VSCode",
   "version": "1.4.0",
-  "publisher": "tidalcycles",
+  "publisher": "gugray",
   "icon": "images/icon128.png",
   "repository": "https://github.com/tidalcycles/vscode-tidalcycles",
   "license": "GPL-3.0",
@@ -210,6 +210,11 @@
           "type": "string",
           "default": "t",
           "description": "The 'prompt' to display in the output window. Refer to the docs for available placeholders."
+        },
+        "tidalcycles.relayUrl": {
+          "type": "string",
+          "default": "",
+          "description": "URL where evaluated commands are relayed to."
         },
         "tidalcycles.feedbackColor": {
           "type": "string",

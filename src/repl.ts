@@ -1,6 +1,21 @@
 import { getProcess } from './getProcess';
+import { relayUrl } from './config';
+import { error } from './logger';
 
 export const send = (command: string) => {
+  const url = relayUrl();
+  const data = { command };
+
+  if (url && url.startsWith('http')) {
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    }).catch((err) => {
+      error(`Relay to ${url} failed: ${err}`);
+    });
+  }
+
   const lines = command.split('\n');
   const proc = getProcess();
   proc.stdin.write(':{\n');
