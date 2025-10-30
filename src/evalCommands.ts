@@ -19,8 +19,3 @@ export const evalMultiCommand = () => {
   updateStatus(input);
   send(input);
 };
-
-export const hushCommand = () => {
-  updateStatus('hush');
-  send('hush');
-};

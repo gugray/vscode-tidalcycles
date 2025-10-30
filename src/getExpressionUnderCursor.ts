@@ -55,7 +55,7 @@ const getStartLineNumber = (
     return getFirstNonBlankLineInRange(document, range);
   }
 
-  // Else, current line has contents and so Tidal expression may start on a prior line
+  // Else, current line has contents and so expression may start on a prior line
   return getFirstExpressionLineBeforeSelection(document, range);
 };
 

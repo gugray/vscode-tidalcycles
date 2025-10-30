@@ -4,7 +4,7 @@ let outputChannel: LogOutputChannel;
 
 const getOutputChannel = () => {
   if (!outputChannel) {
-    outputChannel = window.createOutputChannel('TidalCycles', { log: true });
+    outputChannel = window.createOutputChannel('Anode', { log: true });
     outputChannel.show();
   }
 
