@@ -1,5 +1,5 @@
 let evaluationCount = 0;
-let lastCommand = '';
+let lastCommand = "";
 let difference = 0;
 
 export const updateStatus = (command: string) => {

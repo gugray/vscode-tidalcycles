@@ -1,6 +1,6 @@
-import { send } from './repl';
-import { getExpressionUnderCursor } from './getExpressionUnderCursor';
-import { updateStatus } from './status';
+import {send} from "./repl";
+import {getExpressionUnderCursor} from "./getExpressionUnderCursor";
+import {updateStatus} from "./status";
 
 export const evalCommand = () => {
   const input = getExpressionUnderCursor(false);
@@ -21,6 +21,6 @@ export const evalMultiCommand = () => {
 };
 
 export const hushCommand = () => {
-  updateStatus('hush');
-  send('hush');
+  updateStatus("hush");
+  send("hush");
 };

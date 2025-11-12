@@ -1,8 +1,6 @@
-import { Range, TextDocument, TextEditor, window, workspace } from 'vscode';
+import {Range, TextDocument, TextEditor, window, workspace} from "vscode";
 
-export const getExpressionUnderCursor = (
-  getMultiline: boolean
-): string | null => {
+export const getExpressionUnderCursor = (getMultiline: boolean): string | null => {
   const editor: TextEditor | undefined = window.activeTextEditor;
 
   if (!editor) {
@@ -17,20 +15,12 @@ export const getExpressionUnderCursor = (
     if (isEmpty(document, position.line)) {
       return null;
     }
-    const range = new Range(
-      line.lineNumber,
-      0,
-      line.lineNumber,
-      line.text.length
-    );
+    const range = new Range(line.lineNumber, 0, line.lineNumber, line.text.length);
     feedback(range);
     return document.getText(range);
   }
 
-  const selectedRange = new Range(
-    editor.selection.anchor,
-    editor.selection.active
-  );
+  const selectedRange = new Range(editor.selection.anchor, editor.selection.active);
   const startLineNumber = getStartLineNumber(document, selectedRange);
   if (startLineNumber === null) {
     return null;
@@ -46,10 +36,7 @@ export const getExpressionUnderCursor = (
   return document.getText(range);
 };
 
-const getStartLineNumber = (
-  document: TextDocument,
-  range: Range
-): number | null => {
+const getStartLineNumber = (document: TextDocument, range: Range): number | null => {
   // If current line is empty, search forward for the expression start
   if (isEmpty(document, range.start.line)) {
     return getFirstNonBlankLineInRange(document, range);
@@ -59,10 +46,7 @@ const getStartLineNumber = (
   return getFirstExpressionLineBeforeSelection(document, range);
 };
 
-const getFirstExpressionLineBeforeSelection = (
-  document: TextDocument,
-  range: Range
-): number | null => {
+const getFirstExpressionLineBeforeSelection = (document: TextDocument, range: Range): number | null => {
   let currentLineNumber = range.start.line;
 
   // If current line is empty, do not attempt to search.
@@ -77,15 +61,8 @@ const getFirstExpressionLineBeforeSelection = (
   return currentLineNumber + 1;
 };
 
-const getFirstNonBlankLineInRange = (
-  document: TextDocument,
-  range: Range
-): number | null => {
-  for (
-    let currentLineNumber = range.start.line;
-    currentLineNumber <= range.end.line;
-    currentLineNumber++
-  ) {
+const getFirstNonBlankLineInRange = (document: TextDocument, range: Range): number | null => {
+  for (let currentLineNumber = range.start.line; currentLineNumber <= range.end.line; currentLineNumber++) {
     if (!isEmpty(document, currentLineNumber)) {
       return currentLineNumber;
     }
@@ -94,23 +71,17 @@ const getFirstNonBlankLineInRange = (
   return null;
 };
 
-const getEndLineNumber = (
-  document: TextDocument,
-  startLineNumber: number
-): number => {
+const getEndLineNumber = (document: TextDocument, startLineNumber: number): number => {
   let currentLineNumber = startLineNumber;
-  while (
-    currentLineNumber < document.lineCount &&
-    !isEmpty(document, currentLineNumber)
-  ) {
+  while (currentLineNumber < document.lineCount && !isEmpty(document, currentLineNumber)) {
     currentLineNumber++;
   }
   return currentLineNumber - 1;
 };
 
 const feedback = (range: Range): void => {
-  const configuration = workspace.getConfiguration('tcpure');
-  const flashColor = configuration.get<string>('flashDecoration', '#00ff00');
+  const configuration = workspace.getConfiguration("tcpure");
+  const flashColor = configuration.get<string>("flashDecoration", "#00ff00");
 
   const flashDecorationType = window.createTextEditorDecorationType({
     backgroundColor: flashColor,

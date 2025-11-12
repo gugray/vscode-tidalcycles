@@ -1,10 +1,10 @@
-import { LogOutputChannel, window } from 'vscode';
+import {LogOutputChannel, window} from "vscode";
 
 let outputChannel: LogOutputChannel;
 
 const getOutputChannel = () => {
   if (!outputChannel) {
-    outputChannel = window.createOutputChannel('TidalCycles', { log: true });
+    outputChannel = window.createOutputChannel("TidalCycles", {log: true});
     outputChannel.show();
   }
 
