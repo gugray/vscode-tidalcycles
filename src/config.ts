@@ -27,7 +27,6 @@ export const onlyLogErrors = () => {
   return getConfiguration(configSection).get("onlyLogErrors", false);
 };
 
-// todo: delete this class in favor of functions
 export class Config {
   readonly getConfiguration = vscode.workspace.getConfiguration;
   readonly configSection: string = "tidalcycles";
@@ -36,9 +35,5 @@ export class Config {
 
   public useStackGhci(): boolean {
     return this.getConfiguration(this.configSection).get("useStackGhci", false);
-  }
-
-  public getExtraCommandsFiles(): string[] {
-    return this.getConfiguration(this.configSection).get<string[]>("codehelp.commands.extra", []);
   }
 }
