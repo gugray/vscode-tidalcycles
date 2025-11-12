@@ -1,9 +1,6 @@
 node_modules
-*.tidal
-*.vsix
-npm-debug.log
-*/out/
-/out/
+dist
+extension
+.idea
 .vscode-test
 .DS_Store
-.nyc_output

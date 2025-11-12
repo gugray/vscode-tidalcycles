@@ -6,12 +6,8 @@ import tseslint from 'typescript-eslint';
 export default defineConfig([
   {
     ignores: [
-      'test-integration/*',
       'node_modules/*',
-      'out/*',
-      '.nyc_output/*',
-      '.vscode-test/*',
-      'tools/*',
+      'extension/*',
     ],
   },
   { files: ['**/*.{ts}'] },
