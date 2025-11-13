@@ -1,10 +1,11 @@
 import {getProcess} from "./getProcess";
-import {relayUrl} from "./config";
+import {relayUrl, relaySecret} from "./config";
 import {error} from "./logger";
 
 export const send = (command: string) => {
   const url = relayUrl();
-  const data = {command};
+  const secret = relaySecret();
+  const data = {command, secret, source: "tidal"};
 
   if (url && url.startsWith("http")) {
     fetch(url, {

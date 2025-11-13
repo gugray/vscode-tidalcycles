@@ -15,6 +15,10 @@ export const relayUrl = (): string | null => {
   return getConfiguration(configSection).get("relayUrl", null);
 };
 
+export const relaySecret = (): string | null => {
+  return getConfiguration(configSection).get("relaySecret", null);
+};
+
 export const ghciPath = () => {
   return getConfiguration(configSection).get("ghciPath", "ghci");
 };

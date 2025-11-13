@@ -2,7 +2,7 @@
   "name": "relaying-vscode-tidalcycles",
   "displayName": "Relaying TidalCycles for VSCode",
   "description": "Relaying TidalCycles support in VSCode",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "publisher": "gugray",
   "icon": "./extension/icon128.png",
   "repository": "https://github.com/tidalcycles/vscode-tidalcycles",
@@ -72,6 +72,11 @@
           "type": "string",
           "default": "",
           "description": "URL where evaluated commands are relayed to."
+        },
+        "tidalcycles.relaySecret": {
+          "type": "string",
+          "default": "",
+          "description": "Secret to authenticate with relay server."
         },
         "tidalcycles.feedbackColor": {
           "type": "string",

@@ -1,8 +1,21 @@
 # Change Log
 
+## "1.4.1" [Tonatiuh branch]
+
+- Added relaySecret; sending "tidal" as source
+
+## "1.5.0" [Tonatiuh branch]
+
+- Reduced plugin: no autocompletion or documentation; no hush 1-16 commands
+- Removed CI/CD
+- Removed unused files and folders
+- NPM => Yarn
+- Build with esbuild into /extension; create vsix under /dist
+- Added posting to relay server, with configurable URL
+
 ## "1.4.1"
 
-- fix issue with auto-detected .ghcup path not being found
+- Fix issue with auto-detected .ghcup path not being found
 
 ## "1.4.0"
 
